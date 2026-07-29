@@ -5,12 +5,11 @@ from unittest.mock import AsyncMock, MagicMock
 
 import httpx
 import pytest
-from httpx import ASGITransport
-
 from app.main import app
 from app.models.condominio import Condominio
 from app.routers.condominio import _get_service
 from app.services.condominio import CondominioJaExiste, CondominioNaoEncontrado
+from httpx import ASGITransport
 
 
 @pytest.fixture

@@ -3,7 +3,6 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-
 from app.repositories.rivalidade import RivalidadeRepository
 from app.services.rivalidade import (
     NivelInvalido,

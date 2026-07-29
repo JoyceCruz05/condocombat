@@ -6,8 +6,6 @@ from unittest.mock import AsyncMock, MagicMock
 
 import httpx
 import pytest
-from httpx import ASGITransport
-
 from app.main import app
 from app.routers.rivalidade import _get_service
 from app.services.rivalidade import (
@@ -15,6 +13,7 @@ from app.services.rivalidade import (
     RivalidadeJaExiste,
     RivalidadeNaoEncontrada,
 )
+from httpx import ASGITransport
 
 
 @pytest.fixture

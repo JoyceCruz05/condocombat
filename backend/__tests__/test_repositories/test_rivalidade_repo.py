@@ -3,10 +3,9 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.models.rivalidade import Rivalidade
 from app.repositories.rivalidade import RivalidadeRepository
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 @pytest.fixture

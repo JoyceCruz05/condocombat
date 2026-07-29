@@ -3,7 +3,6 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-
 from app.repositories.ocorrencia import OcorrenciaRepository
 from app.services.ocorrencia import (
     OcorrenciaNaoEncontrada,

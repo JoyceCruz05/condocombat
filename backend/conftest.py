@@ -6,11 +6,10 @@ import os
 os.environ.setdefault("SECRET_KEY", "test-secret-key-for-tests-32chars-min!")
 
 import pytest
+from app.database import Base
 from sqlalchemy import event
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.pool import StaticPool
-
-from app.database import Base
 
 
 @pytest.fixture(scope="session")
@@ -60,6 +59,7 @@ def mock_session():
     sync como scalar_one_or_none() e scalars().all() funcionem.
     """
     from unittest.mock import AsyncMock, MagicMock
+
     from sqlalchemy.ext.asyncio import AsyncSession
 
     session = AsyncMock(spec=AsyncSession)

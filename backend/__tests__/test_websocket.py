@@ -4,13 +4,12 @@ import json
 from datetime import datetime, timedelta, timezone
 
 import pytest
-from fastapi.testclient import TestClient
-from jose import jwt
-
 from app.config import settings
 from app.main import app
 from app.schemas.ws_message import EventType, WSMessage
 from app.services.ws_manager import manager
+from fastapi.testclient import TestClient
+from jose import jwt
 
 
 @pytest.fixture

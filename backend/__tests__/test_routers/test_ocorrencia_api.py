@@ -6,14 +6,13 @@ from unittest.mock import AsyncMock, MagicMock
 
 import httpx
 import pytest
-from httpx import ASGITransport
-
 from app.main import app
 from app.routers.ocorrencia import _get_service
 from app.services.ocorrencia import (
     OcorrenciaNaoEncontrada,
     TransicaoStatusInvalida,
 )
+from httpx import ASGITransport
 
 
 @pytest.fixture

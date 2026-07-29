@@ -27,6 +27,6 @@ class Morador(Base):
         default=lambda: datetime.now(timezone.utc),
     )
 
-    apartamento: Mapped["Apartamento"] = relationship(  # noqa: F821
+    apartamento: Mapped[Apartamento] = relationship(  # noqa: F821
         "Apartamento", back_populates="moradores"
     )

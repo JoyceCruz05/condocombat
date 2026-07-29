@@ -3,11 +3,10 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.models.morador import Morador
 from app.repositories.morador import MoradorRepository
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 @pytest.fixture

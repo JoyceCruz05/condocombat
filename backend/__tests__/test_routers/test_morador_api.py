@@ -5,8 +5,6 @@ from unittest.mock import AsyncMock, MagicMock
 
 import httpx
 import pytest
-from httpx import ASGITransport
-
 from app.main import app
 from app.routers.morador import _get_service
 from app.services.morador import (
@@ -14,6 +12,7 @@ from app.services.morador import (
     MoradorComEmailJaExiste,
     MoradorNaoEncontrado,
 )
+from httpx import ASGITransport
 
 
 @pytest.fixture
