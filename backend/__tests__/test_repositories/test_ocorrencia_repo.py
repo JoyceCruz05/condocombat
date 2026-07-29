@@ -1,11 +1,13 @@
 """Unit tests for OcorrenciaRepository."""
 
+from datetime import UTC
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from app.models.ocorrencia import Ocorrencia
 from app.repositories.ocorrencia import OcorrenciaRepository
-from sqlalchemy.ext.asyncio import AsyncSession
 
 
 @pytest.fixture
@@ -30,7 +32,7 @@ def repo(session: MagicMock) -> OcorrenciaRepository:
 
 
 def _make(**kw: dict) -> MagicMock:
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     vals: dict = {
         "id": 1,
@@ -40,8 +42,8 @@ def _make(**kw: dict) -> MagicMock:
         "gravidade": "media",
         "status": "aberta",
         "apartamento_id": 1,
-        "created_at": datetime.now(timezone.utc),
-        "updated_at": datetime.now(timezone.utc),
+        "created_at": datetime.now(UTC),
+        "updated_at": datetime.now(UTC),
     }
     vals.update(kw)
     m = MagicMock(spec=Ocorrencia)

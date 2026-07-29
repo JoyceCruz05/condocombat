@@ -3,6 +3,7 @@
 from unittest.mock import MagicMock
 
 import pytest
+
 from app.models.condominio import Condominio
 from app.repositories.condominio import CondominioRepository
 from app.schemas.condominio import CondominioCreate, CondominioUpdate

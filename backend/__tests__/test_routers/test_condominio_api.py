@@ -1,15 +1,17 @@
 """Integration tests for Condominio REST endpoints."""
 
 from collections.abc import AsyncGenerator
+from datetime import UTC
 from unittest.mock import AsyncMock, MagicMock
 
 import httpx
 import pytest
+from httpx import ASGITransport
+
 from app.main import app
 from app.models.condominio import Condominio
 from app.routers.condominio import _get_service
 from app.services.condominio import CondominioJaExiste, CondominioNaoEncontrado
-from httpx import ASGITransport
 
 
 @pytest.fixture
@@ -50,7 +52,7 @@ def _make_condominio(
     cnpj: str = "11.222.333/0001-44",
 ) -> Condominio:
     """Cria um objeto Condominio simulado."""
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     obj = MagicMock(spec=Condominio)
     obj.id = condominio_id
@@ -59,8 +61,8 @@ def _make_condominio(
     obj.cnpj = cnpj
     obj.telefone = "(11) 99999-0000"
     obj.email = "teste@condominio.com"
-    obj.created_at = datetime.now(timezone.utc)
-    obj.updated_at = datetime.now(timezone.utc)
+    obj.created_at = datetime.now(UTC)
+    obj.updated_at = datetime.now(UTC)
     return obj
 
 

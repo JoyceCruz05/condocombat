@@ -3,6 +3,7 @@
 import re
 
 import pytest
+
 from scripts.seed_data import (
     APARTAMENTOS,
     CONDOMINIOS,

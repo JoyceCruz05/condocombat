@@ -46,3 +46,10 @@ exclude = ["alembic*"]
 venvPath = "."
 venv = ".venv"
 
+[tool.ruff.lint]
+ignore = [
+    "B008",   # Ignora o aviso do Depends() do FastAPI
+    "BLE001", # Ignora o aviso de exceção genérica (except Exception)
+    "SIM117", # Ignora o aviso de 'with' aninhados
+]
+

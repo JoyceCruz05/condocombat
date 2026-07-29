@@ -3,6 +3,7 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
+
 from app.repositories.morador import MoradorRepository
 from app.services.morador import (
     MoradorComCPFJaExiste,

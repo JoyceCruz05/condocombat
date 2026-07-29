@@ -1,6 +1,9 @@
 """Tests for SQLAlchemy ORM models — TDD approach."""
 
 import pytest
+from sqlalchemy import select
+from sqlalchemy.orm import selectinload
+
 from app.models import (
     Apartamento,
     Condominio,
@@ -8,8 +11,6 @@ from app.models import (
     Ocorrencia,
     Rivalidade,
 )
-from sqlalchemy import select
-from sqlalchemy.orm import selectinload
 
 
 @pytest.mark.asyncio
@@ -173,8 +174,9 @@ async def test_apartamento_moradores_relationship(async_session):
 
 def test_unique_constraint_apartamento():
     """Verifica que existe constraint única para numero+bloco+torre+condominio_id no modelo."""
-    from app.models import Apartamento
     from sqlalchemy import inspect
+
+    from app.models import Apartamento
     insp = inspect(Apartamento.__table__)
     unique_constraints = [c for c in insp.constraints if hasattr(c, 'columns') and c.__class__.__name__ == 'UniqueConstraint']
     assert any(
@@ -185,8 +187,9 @@ def test_unique_constraint_apartamento():
 
 def test_unique_constraint_rivalidade():
     """Verifica que existe constraint única para par (apartamento_a, apartamento_b) no modelo."""
-    from app.models import Rivalidade
     from sqlalchemy import inspect
+
+    from app.models import Rivalidade
     insp = inspect(Rivalidade.__table__)
     unique_constraints = [c for c in insp.constraints if hasattr(c, 'columns') and c.__class__.__name__ == 'UniqueConstraint']
     assert any(

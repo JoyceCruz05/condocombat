@@ -1,6 +1,9 @@
 import asyncio
 from logging.config import fileConfig
 
+from sqlalchemy import pool
+from sqlalchemy.ext.asyncio import create_async_engine
+
 from alembic import context
 from app.config import settings
 from app.database import Base
@@ -13,8 +16,6 @@ from app.models import (  # noqa: F401
     Ocorrencia,
     Rivalidade,
 )
-from sqlalchemy import pool
-from sqlalchemy.ext.asyncio import create_async_engine
 
 config = context.config
 if config.config_file_name is not None:
