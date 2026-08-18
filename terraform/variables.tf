@@ -27,7 +27,8 @@ variable "netlify_auth_token" {
 }
 
 variable "netlify_site_name" {
-  type = string
+  type    = string
+  default = "condocombat-landing"
 }
 
 variable "dockerhub_username" {

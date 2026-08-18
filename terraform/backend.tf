@@ -1,12 +1,13 @@
 resource "render_web_service" "backend" {
-  name           = "condocombat-backend"
-  plan           = "free"
-  region         = "oregon"
-  start_command  = null
+  name          = "condocombat-backend"
+  plan          = "free"
+  region        = "oregon"
+  start_command = null
 
   runtime_source = {
     image = {
-      image_url = "docker.io/${var.dockerhub_username}/condocombat-backend:latest"
+      image_url = "docker.io/${var.dockerhub_username}/condocombat-backend"
+      tag       = "latest"
     }
   }
 
