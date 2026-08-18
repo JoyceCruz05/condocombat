@@ -9,6 +9,6 @@ output "frontend_url" {
 }
 
 output "landing_url" {
-  value       = netlify_site.landing.domain_name
+  value       = data.netlify_site.landing.domain_name
   description = "URL da Landing Page no Netlify"
 }
