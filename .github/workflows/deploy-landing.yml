@@ -59,6 +59,7 @@ jobs:
         with:
           name: landing-dist
           path: landing/dist/
+          merge-multiple: true
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
