@@ -12,9 +12,3 @@ resource "netlify_environment_variable" "landing_api_url" {
     }
   ]
 }
-
-# Deploy dos arquivos estáticos compilados pelo Astro
-resource "netlify_deploy" "landing_deploy" {
-  site_id   = data.netlify_site.landing.id
-  directory = "${path.module}/../landing/dist"
-}
