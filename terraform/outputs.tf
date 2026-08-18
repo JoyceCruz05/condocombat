@@ -14,6 +14,6 @@ output "frontend_url" {
 }
 
 output "landing_url" {
-  value       = data.netlify_site.landing.url
+  value       = data.netlify_site.landing.ssl_url
   description = "URL da Landing Page no Netlify"
 }

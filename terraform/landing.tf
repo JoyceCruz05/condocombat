@@ -8,7 +8,8 @@ resource "netlify_environment_variable" "landing_api_url" {
   key     = "PUBLIC_API_URL"
   values = [
     {
-      value = render_web_service.backend.url
+      context = "all"
+      value   = render_web_service.backend.url
     }
   ]
 }
