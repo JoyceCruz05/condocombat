@@ -14,6 +14,6 @@ output "frontend_url" {
 }
 
 output "landing_url" {
-  value       = "https://${data.netlify_site.landing.default_subdomain}.netlify.app"
+  value       = "https://${var.netlify_site_name}.netlify.app"
   description = "URL da Landing Page no Netlify"
 }
