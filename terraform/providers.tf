@@ -1,4 +1,5 @@
 terraform {
+  # Requer a versão mais recente do Terraform (1.10.x ou superior)
   required_version = ">= 1.10.0"
 
   required_providers {
@@ -12,7 +13,7 @@ terraform {
     }
     netlify = {
       source  = "netlify/netlify"
-      version = "~> 0.2"
+      version = "~> 0.4"
     }
   }
 }
@@ -27,5 +28,5 @@ provider "render" {
 }
 
 provider "netlify" {
-  token = var.netlify_auth_token
+  token = var.netlify_api_token
 }

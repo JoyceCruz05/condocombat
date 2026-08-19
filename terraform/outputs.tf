@@ -1,19 +1,11 @@
-output "database_host" {
-  value       = "db.${supabase_project.db.id}.supabase.co"
-  description = "Host do Banco de Dados PostgreSQL no Supabase"
-}
-
 output "backend_url" {
-  value       = render_web_service.backend.url
-  description = "URL do Backend no Render"
+  value = render_service.backend.url
 }
 
 output "frontend_url" {
-  value       = render_web_service.frontend.url
-  description = "URL do Frontend no Render"
+  value = render_service.frontend.url
 }
 
 output "landing_url" {
-  value       = "https://${var.netlify_site_name}.netlify.app"
-  description = "URL da Landing Page no Netlify"
+  value = "https://${data.netlify_site.landing.name}.netlify.app"
 }
