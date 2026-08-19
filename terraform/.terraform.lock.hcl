@@ -3,7 +3,7 @@
 
 provider "registry.terraform.io/netlify/netlify" {
   version     = "0.4.4"
-  constraints = "~> 0.2"
+  constraints = "~> 0.4"
   hashes = [
     "h1:PYaL+l5Qrqp2TpexO4t61UaG1lpQUc2s6PJsa6WbJZU=",
     "zh:449ff9dc58500d761ab26725fe2bd0dc1a7d98e441e9c0b6041e84c618104f7a",
