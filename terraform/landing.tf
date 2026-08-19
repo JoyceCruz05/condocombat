@@ -9,7 +9,7 @@ resource "netlify_environment_variable" "landing_public_url" {
   key     = "PUBLIC_APP_URL"
   values = [
     {
-      value   = render_service.frontend.url
+      value = render_web_service.frontend.url
       context = "all"
     }
   ]

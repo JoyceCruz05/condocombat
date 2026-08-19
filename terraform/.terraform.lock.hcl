@@ -5,6 +5,7 @@ provider "registry.terraform.io/netlify/netlify" {
   version     = "0.4.4"
   constraints = "~> 0.4"
   hashes = [
+    "h1:+KqdF7fIB9TBeOxGSvKPVpPFVZ1+6G3SsOm8QRXkG+I=",
     "h1:PYaL+l5Qrqp2TpexO4t61UaG1lpQUc2s6PJsa6WbJZU=",
     "zh:449ff9dc58500d761ab26725fe2bd0dc1a7d98e441e9c0b6041e84c618104f7a",
     "zh:45ddd814bef13852016fb5ed38a5cc65ff8744aeca3384410855abbfd1ab3bf0",
@@ -28,6 +29,7 @@ provider "registry.terraform.io/render-oss/render" {
   constraints = "~> 1.3"
   hashes = [
     "h1:41RDuyC/SXj6Hu5FLgWzQRSN3n/XxonYI8CaEFjCf7Q=",
+    "h1:wz6KTpyHk/XzaXMPUbUpkWQfLquOevbJ7lj6nlB6Bhw=",
     "zh:246e4b438054d8f9d47828373504b39b479a53cf5b444170c30f8b370bf51989",
     "zh:296a709eded9a1205af16396929e5e12f216190d571cb0c398c0604517fede72",
     "zh:60ec67073a919bd33880afd592b42998fe73c01f1bbee7de82b034e2dfa4dcb4",
@@ -49,6 +51,7 @@ provider "registry.terraform.io/supabase/supabase" {
   version     = "1.10.1"
   constraints = "~> 1.0"
   hashes = [
+    "h1:TuwJ6EqSNR36eo9dEHP8CumMXm5NybcVsrkrZ9PNP4s=",
     "h1:xMCfOa7J6zhX+1fMiexz1nAWLtG+HRwCgqqSVYQIJGg=",
     "zh:0b4bd09402a8676d4ce24ce7ba5f5644aaadf4bfad076dc72dcca48e70f34250",
     "zh:19371475d4805f1d94a16cd1a11b00ed13315886a1cc853a6167da9be0118f77",
