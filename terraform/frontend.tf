@@ -5,14 +5,8 @@ resource "render_web_service" "frontend" {
 
   runtime_source = {
     image = {
-      image_url = "docker.io/${var.dockerhub_username}/condocombat-frontend"
+      image_url = "${var.dockerhub_username}/condocombat-frontend"
       tag       = "latest"
-    }
-  }
-
-  env_vars = {
-    "NEXT_PUBLIC_API_URL" = {
-      value = render_web_service.backend.url
     }
   }
 }

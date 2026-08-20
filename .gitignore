@@ -53,3 +53,12 @@ backend/build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Arquivos de estado e variáveis do Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+site.zip
