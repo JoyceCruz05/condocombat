@@ -1,6 +1,7 @@
 name: 🚀 Continuous Deployment (CD) — Terraform (Latest)
 
 on:
+  workflow_dispatch: # Permite disparar manualmente pelo botão no GitHub
   workflow_run:
     workflows: ["Backend CI", "Frontend CI", "Deploy Landing Page"]
     types:
@@ -11,7 +12,7 @@ on:
 jobs:
   terraform-deploy:
     name: 🏗️ Provisionar e Fazer Deploy da Infraestrutura
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -39,11 +40,12 @@ jobs:
         working-directory: ./terraform
 
       - name: 📋 Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -input=false -out=tfplan
         working-directory: ./terraform
         env:
           TF_VAR_dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
           TF_VAR_supabase_access_token: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          TF_VAR_supabase_organization_id: ${{ secrets.SUPABASE_ORG_ID }}
           TF_VAR_supabase_db_password: ${{ secrets.SUPABASE_DB_PASSWORD }}
           TF_VAR_render_api_key: ${{ secrets.RENDER_API_KEY }}
           TF_VAR_render_owner_id: ${{ secrets.RENDER_OWNER_ID }}
@@ -52,11 +54,12 @@ jobs:
           TF_VAR_netlify_site_name: ${{ secrets.NETLIFY_SITE_NAME }}
 
       - name: 🚀 Terraform Apply
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -input=false -auto-approve tfplan
         working-directory: ./terraform
         env:
           TF_VAR_dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
           TF_VAR_supabase_access_token: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          TF_VAR_supabase_organization_id: ${{ secrets.SUPABASE_ORG_ID }}
           TF_VAR_supabase_db_password: ${{ secrets.SUPABASE_DB_PASSWORD }}
           TF_VAR_render_api_key: ${{ secrets.RENDER_API_KEY }}
           TF_VAR_render_owner_id: ${{ secrets.RENDER_OWNER_ID }}
