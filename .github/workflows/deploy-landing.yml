@@ -1,7 +1,7 @@
 name: 🚀 Continuous Deployment (CD) — Terraform (Latest)
 
 on:
-  workflow_dispatch: # Permite disparar manualmente pelo botão no GitHub
+  workflow_dispatch:
   workflow_run:
     workflows: ["Backend CI", "Frontend CI", "Deploy Landing Page"]
     types:
@@ -22,7 +22,7 @@ jobs:
       - name: ⚙️ Setup Node.js (para build da Landing Page)
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: 📦 Build da Landing Page
         run: |
@@ -35,8 +35,11 @@ jobs:
         with:
           terraform_version: "latest"
 
-      - name: 🔍 Terraform Init
-        run: terraform init
+      - name: 🔍 Terraform Init (com permissões limpas)
+        run: |
+          rm -rf .terraform .terraform.lock.hcl
+          terraform init
+          find .terraform/providers -type f -exec chmod 755 {} +
         working-directory: ./terraform
 
       - name: 📋 Terraform Plan
