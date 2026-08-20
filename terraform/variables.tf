@@ -12,16 +12,10 @@ variable "supabase_access_token" {
   description = "Token de acesso da API do Supabase"
 }
 
-variable "supabase_organization_id" {
-  type        = string
-  description = "Slug da organização Supabase com permissão para criar projetos"
-}
-
 variable "supabase_db_password" {
   type        = string
   sensitive   = true
   description = "Senha do banco de dados no Supabase"
-  default     = "devcicd@2020"
 }
 
 variable "render_api_key" {
@@ -52,3 +46,4 @@ variable "netlify_site_name" {
   description = "Nome do site na Netlify"
   default     = "condocombat-landing-joyce"
 }
+
