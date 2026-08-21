@@ -1,5 +1,5 @@
 resource "render_web_service" "backend" {
-  name   = "condocombat-backend"
+  name   = "condocombat-backend-api"
   plan   = "free"
   region = "oregon"
 

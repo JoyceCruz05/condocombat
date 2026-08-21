@@ -1,5 +1,5 @@
 resource "render_web_service" "frontend" {
-  name   = "condocombat-frontend"
+  name   = "condocombat-frontend-web"
   plan   = "free"
   region = "oregon"
 
