@@ -20,15 +20,14 @@ resource "render_web_service" "backend" {
     "ENVIRONMENT" = {
       value = "production"
     }
-    # Pooler IPv4 com suporte a asyncpg e SSL obrigatório
     "DATABASE_URL" = {
-      value = "postgresql+asyncpg://postgres.${supabase_project.db.id}:${var.supabase_db_password}@aws-0-us-east-1.pooler.supabase.com:6543/postgres?ssl=require"
+      value = "postgresql+asyncpg://postgres.${supabase_project.db.id}:${urlencode(var.supabase_db_password)}@aws-0-us-east-1.pooler.supabase.com:5432/postgres"
     }
     "DB_HOST" = {
       value = "aws-0-us-east-1.pooler.supabase.com"
     }
     "DB_PORT" = {
-      value = "6543"
+      value = "5432"
     }
     "DB_NAME" = {
       value = "postgres"
